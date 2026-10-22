@@ -27,7 +27,7 @@ const Services = () => {
   ];
 
   return (
-    <div id="services" className="relative flex flex-col items-center gap-7 px-4 sm:px-12  lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white">
+    <div id="services" className="flex flex-col items-center gap-6 py-20 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full overflow-hidden text-gray-700 dark:text-white">
       <img src={assets.bgImage2} className="absolute -top-110 -left-70 -z-1 dark:hidden" alt="BG_IMG" />
 
       <Title title="How can we enrich your experience?" desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis accusantium est illum? Incidunt, nobis reiciendis?" />
