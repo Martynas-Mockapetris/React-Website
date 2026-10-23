@@ -1,6 +1,7 @@
 import assets from '../assets/assets';
 import ServiceCard from './ServiceCard';
 import Title from './Title';
+import { motion } from 'motion/react';
 
 const Services = () => {
   const servicesData = [
@@ -27,7 +28,14 @@ const Services = () => {
   ];
 
   return (
-    <div id="services" className="flex flex-col items-center gap-6 py-20 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full overflow-hidden text-gray-700 dark:text-white">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      transition={{ staggerChildren: 0.2 }}
+      id="services"
+      className="flex flex-col items-center gap-6 py-20 px-4 sm:px-12 lg:px-24 xl:px-40 text-center w-full overflow-hidden text-gray-700 dark:text-white"
+    >
       <img src={assets.bgImage2} className="absolute -top-110 -left-70 -z-1 dark:hidden" alt="BG_IMG" />
 
       <Title title="How can we enrich your experience?" desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis accusantium est illum? Incidunt, nobis reiciendis?" />
@@ -37,7 +45,7 @@ const Services = () => {
           <ServiceCard key={index} service={service} index={index} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
