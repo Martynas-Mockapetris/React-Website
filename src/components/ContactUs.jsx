@@ -1,6 +1,7 @@
 import assets from '../assets/assets';
 import Title from './Title';
 import toast from 'react-hot-toast';
+import { motion } from 'motion/react';
 
 const ContactUs = () => {
   const onSubmit = async (event) => {
@@ -29,10 +30,17 @@ const ContactUs = () => {
   };
 
   return (
-    <div id="contact-us" className="flex flex-col items-center gap-6 py-20 px-4 sm:px-12 lg:px-24 xl:px-40 w-full overflow-hidden text-gray-700 dark:text-white">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      transition={{ staggerChildren: 0.2 }}
+      viewport={{ once: true }}
+      id="contact-us"
+      className="flex flex-col items-center gap-6 py-20 px-4 sm:px-12 lg:px-24 xl:px-40 w-full overflow-hidden text-gray-700 dark:text-white"
+    >
       <Title title="Reach out team" desc="We value our clients and we want to create the best experience possible, to move business forward" />
 
-      <form className="grid sm:grid-cols-2 gap-3 sm:gap-5 max-w-2xl w-full" onSubmit={onSubmit}>
+      <motion.form initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} viewport={{ once: true }} className="grid sm:grid-cols-2 gap-3 sm:gap-5 max-w-2xl w-full" onSubmit={onSubmit}>
         <div>
           <p className="mb-2 text-sm font-medium">Your Name</p>
           <div className="flex pl-3 rounded-lg border border-gray-300 dark:border-gray-600">
@@ -57,8 +65,8 @@ const ContactUs = () => {
         <button type="submit" className="w-max flex gap-2 bg-primary text-white text-sm px-10 py-3 rounded-full cursor-pointer hover:scale-105 transition-all">
           Submit <img src={assets.arrow_icon} className="w-4" />
         </button>
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   );
 };
 
